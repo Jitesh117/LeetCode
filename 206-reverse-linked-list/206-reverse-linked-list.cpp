@@ -19,9 +19,9 @@ public:
    {
        if(!p)
            return;
-       if(p->next == NULL)
+       if(p->next==NULL)
        {
-            head = p;
+           head = p;
            return;
        }
        reverse(head,p->next);
@@ -29,4 +29,5 @@ public:
        q->next = p;
        p->next = NULL;
    }
+    
 };
