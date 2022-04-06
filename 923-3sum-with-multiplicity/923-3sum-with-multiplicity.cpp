@@ -43,7 +43,7 @@ public:
                             count2++;
                             k--;
                         }
-                        ans = (ans+(count1*count2)%MOD);
+                        ans = (ans+(count1*count2)%MOD)%MOD;
                     }
                     left = j;
                 right = k;
