@@ -16,7 +16,7 @@ public:
         solve(root,sum);
         return root;
     }
-    void solve(TreeNode* root,int &sum)
+    void solve(TreeNode* &root,int &sum)
     {
         if(!root)
             return;
