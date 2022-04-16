@@ -1,12 +1,12 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
+        int stotal=0,ttotal=0;
         for(int i = 0;i<s.size();i++)
-            if(s[i]!=t[i])
-                return t[i];
-        
-        return t[t.size()-1];
+            stotal+=s[i];
+        for(int i = 0;i<t.size();i++)
+            ttotal+=t[i];
+        char result = ttotal-stotal;
+        return result;
     }
 };
