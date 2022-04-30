@@ -1,5 +1,19 @@
 class Solution {
 public:
+    
+    int findTargetSumWays(vector<int>& nums, int target)
+     {
+         target = abs(target);
+         int n = nums.size();
+         int sum = 0;
+         for(int i = 0; i < n; i++)
+             sum += nums[i];
+         
+        int M = (sum + target)/2;
+        if(sum < target || (sum + target) % 2 != 0)
+            return 0;
+         return countSubsets(nums, n, M);
+     }
      int countSubsets(vector<int>& nums, int n, int M)
     {
         int t[n + 1][M + 1];
@@ -15,7 +29,6 @@ public:
             }
         }
         
-        //t[0][0] = 1;
         
         for(int i = 1; i <= n; i++)
         {
@@ -31,17 +44,4 @@ public:
         return t[n][M];  
     }
     
-    int findTargetSumWays(vector<int>& nums, int target)
-     {
-         target = abs(target);
-         int n = nums.size();
-         int sum = 0;
-         for(int i = 0; i < n; i++)
-             sum += nums[i];
-         
-        int M = (sum + target)/2;
-        if(sum < target || (sum + target) % 2 != 0)
-            return 0;
-         return countSubsets(nums, n, M);
-     }
 };
