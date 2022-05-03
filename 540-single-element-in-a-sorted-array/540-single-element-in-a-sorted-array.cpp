@@ -1,7 +1,8 @@
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
-        if(nums.size()==1) return nums[0];
+        if(nums.size()==1) 
+            return nums[0];
         int beg=0, end=nums.size()-1, mid, num;
         
         while(beg < end)
