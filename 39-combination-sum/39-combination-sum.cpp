@@ -15,11 +15,12 @@ public:
             result.push_back(temp);
             return;
         }
-        while(i<c.size() && target-c[i]>=0)
+        for(int j = i;j<c.size();j++)
         {
-            temp.push_back(c[i]);
-            solve(c,target-c[i],temp,result,i);
-            i++;
+            if(c[j]>target)
+                break;
+            temp.push_back(c[j]);
+            solve(c,target-c[j],temp,result,j);
             temp.pop_back();
         }
     }
