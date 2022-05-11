@@ -20,12 +20,10 @@ public:
             return;
         }
         
-        
-        string s = v[digits[0] - '0'];   
+        string s = v[digits[0]-'0'];
         digits.erase(digits.begin()+0);
-        
-        for(int i=0;i<s.length();i++)
-        { 
+        for(int i = 0;i<s.size();i++)
+        {
             solve(digits,op+s[i],res);
         }
     }
