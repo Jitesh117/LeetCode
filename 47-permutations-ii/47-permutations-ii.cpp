@@ -4,7 +4,6 @@ public:
     set<vector<int>> temp;
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         solve(nums,0,nums.size()-1);
-        vector<vector<int>> ans;
         for(auto i = temp.begin();i!=temp.end();i++)
            result.push_back(*i);
         
