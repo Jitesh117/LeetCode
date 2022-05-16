@@ -10,7 +10,6 @@ public:
             int mid = beg + (end-beg)/2;
             if(isBadVersion(mid))
             {
-               
                 end = mid-1;
             }
             else
