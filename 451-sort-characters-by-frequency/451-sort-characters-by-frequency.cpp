@@ -18,8 +18,8 @@ public:
         string result;
         for (auto it : temp)
         {
-            int f = it.first;
-            while (f--)
+            int count = it.first;
+            while (count--)
                 result+= it.second;
         }
         return result;
