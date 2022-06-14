@@ -2,12 +2,12 @@ class Solution {
 public:
     vector<vector<int>> combinationSum2(vector<int>& c, int target) {
         sort(c.begin(),c.end());
-        vector<vector<int>>result;
-        vector<int> temp;
-        solve(c,target,result,temp,0);
+        vector<vector<int>> result;
+        vector<int>temp;
+        solve(0,target,c,temp,result);
         return result;
     }
-    void solve(vector<int>& c,int target, vector<vector<int>>&result,vector<int> temp,int i)
+    void solve(int i,int target, vector<int>&c,vector<int>temp,vector<vector<int>>&result)
     {
         if(target == 0)
         {
@@ -21,10 +21,9 @@ public:
             if(c[i]>target)
                 break;
             temp.push_back(c[j]);
-            solve(c,target-c[j],result,temp,j+1);
+            solve(j+1,target-c[j],c,temp,result);
             temp.pop_back();
             
         }
     }
-    
 };
