@@ -1,14 +1,13 @@
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& c, int target) {
-        vector<vector<int>> result;
         sort(c.begin(),c.end());
         vector<int> temp;
-        solve(c,target,temp,result,0);
-        
+        vector<vector<int>>result;
+        solve(0,c,target,temp,result);
         return result;
     }
-    void solve(vector<int>& c, int target,vector<int> &temp, vector<vector<int>> &result, int i)
+    void solve(int i,vector<int>&c, int target, vector<int>temp,vector<vector<int>>&result)
     {
         if(target == 0)
         {
@@ -17,10 +16,11 @@ public:
         }
         for(int j = i;j<c.size();j++)
         {
+    
             if(c[j]>target)
                 break;
             temp.push_back(c[j]);
-            solve(c,target-c[j],temp,result,j);
+            solve(j,c,target-c[j],temp,result);
             temp.pop_back();
         }
     }
