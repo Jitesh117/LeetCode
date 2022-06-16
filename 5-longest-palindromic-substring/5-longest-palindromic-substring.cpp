@@ -1,33 +1,33 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-          int bestlen = 0;
-        string beststr = "";
-        int n = s.length();
-        for(int mid = 0; mid < n; mid++) {
-            for(int x = 0; mid - x >= 0 && mid + x < n; x++) {
-                if(s[mid-x] != s[mid+x]) {
-                    break;
+        int n=s.length(), ansi, ansj, len=0;
+        string p=s, ans;
+        reverse(p.begin(),p.end());
+        int t[n+1][n+1];
+        for(int i=0;i<=n;i++) 
+        {
+            t[i][0] = 0;
+            t[0][i] = 0;
+        }
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                if(s[i-1]==p[j-1])
+                {
+                    t[i][j] = 1+t[i-1][j-1];
+                    if(t[i][j]>len)
+                    {
+                        string temp= s.substr(i-t[i][j],t[i][j]);
+    
+                        string rev = temp;
+                        reverse(rev.begin(),rev.end());
+                        if(temp == rev) 
+                            len = t[i][j], ans=temp;
+                    }
                 }
-                int len = 2 * x + 1;
-                if(len > bestlen) {
-                    bestlen = len;
-                    beststr = s.substr(mid - x, len);
-                }
+                else t[i][j]=0;
             }
         }
-        for(int mid = 0; mid < n - 1; mid++) {
-            for(int x = 1; mid - x + 1 >= 0 && mid + x < n; x++) {
-                if(s[mid-x+1] != s[mid+x]) {
-                    break;
-                }
-                int len = 2 * x;
-                if(len > bestlen) {
-                    bestlen = len;
-                    beststr = s.substr(mid - x + 1, len);
-                }
-            }
-        }
-        return beststr;
+        return ans;
     }
 };
