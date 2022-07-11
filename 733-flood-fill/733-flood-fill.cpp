@@ -1,11 +1,10 @@
 class Solution {
 public:
-    int m, n;
-    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newcolor) {
-        m = image.size();
+    int m,n;
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        m=image.size();
         n = image[0].size();
-        flood(image,sr,sc,image[sr][sc],newcolor);
-        
+        flood(image,sr,sc,image[sr][sc],color);
         return image;
     }
     void flood(vector<vector<int>>& image,int i,int j, int currcolor, int newcolor)
