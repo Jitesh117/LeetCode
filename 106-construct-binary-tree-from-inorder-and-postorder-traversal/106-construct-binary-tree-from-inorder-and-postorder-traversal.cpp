@@ -14,9 +14,9 @@ public:
         }
         TreeNode* root= new TreeNode(postorder[postend]);
         int inroot= inmap[root->val];
-        int eleleft = inroot - instart;
-        root->left= solve(poststart, poststart+eleleft-1, instart, inroot-1,postorder,inorder);
-        root->right= solve(poststart+eleleft,postend-1,inroot+1, inend ,postorder,inorder  );
+        int posleft = inroot - instart;
+        root->left= solve(poststart, poststart+posleft-1, instart, inroot-1,postorder,inorder);
+        root->right= solve(poststart+posleft,postend-1,inroot+1, inend ,postorder,inorder  );
         return root;
         
     }
