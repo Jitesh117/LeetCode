@@ -1,25 +1,32 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        if(nums.size() <=1)
+        vector<int>one,two;
+        
+        int n = nums.size();
+        if(n == 1)
             return nums[0];
-        vector<int> first(nums.begin(),nums.end()-1);
-        vector<int> second(nums.begin()+1,nums.end());
-        
-        return max(roboriginal(first),roboriginal(second));
-    }
-    int roboriginal(vector<int>& nums) {
-        
-       vector<int> t;
-        t.push_back(0);
-        for(int i = 0;i<nums.size();i++)
-            t.push_back(nums[i]);
-    
-        t[1] = nums[0];
-        for(int i = 2;i<t.size();i++)
-        {
-            t[i] = max(t[i]+ t[i-2],t[i-1]);
+        for(int i = 0;i<n;i++)
+        {   if(i>0)
+                one.push_back(nums[i]);
+            if(i < n-1)
+                two.push_back(nums[i]);
         }
-    return t[t.size()-1];
+        return max(solve(one),solve(two));
+    }
+    int solve(vector<int>& nums) {
+        int n = nums.size();
+        int prev=nums[0],prev2=0;
+        for(int i = 1;i<n;i++)
+        {
+            int take = nums[i];
+            if(i>1)
+                take+=prev2;
+            int nontake = prev;
+            int curi = max(take,nontake);
+            prev2 = prev;
+            prev = curi;
+        }
+        return prev;
     }
 };
