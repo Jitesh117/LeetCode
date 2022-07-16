@@ -5,17 +5,17 @@ public:
     
     int countPath(int &m,int &n,int x, int r,int c){
         if(r==m || c==n || r<0 || c<0)
-            return 1; //reached outside the boundary 
+            return 1; 
         if(x==0)
-            return 0; //no more moves left;
+            return 0; 
         int ans =0;
         if(dp[r][c][x]!=-1)
             return dp[r][c][x];
         
-        ans = ( ans + countPath(m,n,x-1,r-1,c)) % mod; //up
-        ans = ( ans + countPath(m,n,x-1,r+1,c)) % mod; //down
-        ans = ( ans + countPath(m,n,x-1,r,c+1)) % mod; //right
-        ans = ( ans + countPath(m,n,x-1,r,c-1)) % mod; //left     
+        ans = ( ans + countPath(m,n,x-1,r-1,c)) % mod; 
+        ans = ( ans + countPath(m,n,x-1,r+1,c)) % mod;
+        ans = ( ans + countPath(m,n,x-1,r,c+1)) % mod;
+        ans = ( ans + countPath(m,n,x-1,r,c-1)) % mod; 
         return dp[r][c][x] = ans;
     }
     
