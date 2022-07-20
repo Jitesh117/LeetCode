@@ -1,33 +1,35 @@
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
-        int sum =0;
-        for(int i = 0;i<nums.size();i++)
-            sum+=nums[i];
-        if(sum%2!=0)
+
+        int n = nums.size();
+        if( n == 1)
             return false;
-        return subset(nums,nums.size(),sum/2);
-        
+        int sum = 0;
+        for(int i = 0;i<n;i++)
+            sum+=nums[i];
+        if(sum&1)
+            return false;
+        return solve(n,sum/2,nums);
     }
-    bool subset(vector<int> &nums,int n, int sum)
+    bool solve(int n, int k, vector<int> &arr)
     {
-        bool t[n+1][sum+1];
-        for(int i = 0 ;i<=n;i++)
-            for(int j = 0;j<=sum;j++)
+        vector<vector<bool>> dp(n, vector<bool>(k + 1, 0));
+        for (int i = 0; i < n; i++)
+            dp[i][0] = true;
+        if(arr[0]<=k)dp[0][arr[0]] = true;
+
+        for (int ind = 1; ind < n; ind++)
+        {
+            for (int target = 1; target <= k; target++)
             {
-                if( i == 0)
-                    t[i][j] = false;
-                if( j == 0)
-                    t[i][j] = true;
+                bool nontake = dp[ind - 1][target];
+                bool take = false;
+                if (arr[ind] <= target)
+                    take = dp[ind - 1][target - arr[ind]];
+                dp[ind][target] = take | nontake;
             }
-        for(int  i = 1; i<=n;i++ )
-            for(int j = 1;j<=sum;j++)
-            {
-                if( nums[i-1]<=j)
-                    t[i][j] = t[i-1][j] || t[i-1][j-nums[i-1]];
-                else
-                    t[i][j] = t[i-1][j];
-            }
-        return t[n][sum];
+        }
+        return dp[n - 1][k];
     }
 };
