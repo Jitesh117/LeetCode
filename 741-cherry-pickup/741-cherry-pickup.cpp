@@ -22,8 +22,8 @@ public:
         if(j!=c)
             value+=grid[r][c];
         
-        int dd = solve(i+1,j,r+1,c,grid,dp);
         int dr = solve(i+1,j,r,c+1,grid,dp);
+        int dd = solve(i+1,j,r+1,c,grid,dp);
         int rd = solve(i,j+1,r+1,c,grid,dp);
         int rr = solve(i,j+1,r,c+1,grid,dp);
             
