@@ -1,36 +1,22 @@
 class Solution {
 public:
-    int coinChange(vector<int>& coins, int sum) {
+    int coinChange(vector<int>& coins, int amount) {
         int n = coins.size();
-        long t[n + 1][sum + 1];
-
-	for (int i = 0; i <= n; i++) {
-		for (int j = 0; j <= sum; j++) {
-			if (j == 0)
-				t[i][j] = 0;
-			if (i == 0)
-				t[i][j] = INT_MAX-1;
-			if (i == 1) {
-				if (j % coins[i - 1] == 0)
-					t[i][j] = j / coins[i - 1];
-				else
-					t[i][j] = INT_MAX-1;
-			}
-		}
-	}
-
-	t[0][0] = 0;
-
-	for (int i = 1; i <= n; i++)
-		for (int j = 1; j <= sum; j++)
-			if (coins[i - 1] <= j)
-				t[i][j] = min(t[i - 1][j], 1 + t[i][j - coins[i - 1]]);
-			else
-				t[i][j] = t[i - 1][j];
-
-	if(t[n][sum] == INT_MAX-1)
-        return -1;
-    else
-        return t[n][sum];
+        vector<vector<int>>dp(n,vector<int>(amount+1,-1));
+        int result = solve(n-1,coins,amount,dp);
+        if(result >=1e9) return -1;
+        return result;
+    }
+    int solve(int ind, vector<int>&coins,int amount,vector<vector<int>>&dp){
+        if(ind ==0){
+            if(amount%coins[ind] == 0) return amount/coins[ind];
+            return INT_MAX;
+        }
+        if(dp[ind][amount]!=-1) return dp[ind][amount];
+        int nontake = solve(ind-1,coins,amount,dp);
+        int take  = 1e9;
+        if(coins[ind]<=amount) take = 1+solve(ind,coins,amount-coins[ind],dp);
+        
+        return dp[ind][amount] = min(take,nontake);
     }
 };
