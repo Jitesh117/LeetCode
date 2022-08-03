@@ -1,6 +1,6 @@
 class MinStack {
 public:
-    priority_queue<int,vector<int>,greater<int>>pq;
+    stack<int>pq;
     stack<int>st;
     MinStack() {
         
