@@ -1,31 +1,21 @@
 class Solution {
 public:
     int findKthPositive(vector<int>& arr, int k) {
-        int cnt = 1;
         int cur = 1;
-        while(k)
-        {
-            if(!bin(arr,cur))
-            {
+        while(k){
+            if(!binsearch(arr,cur))
                 k--;
-                
-            }
             cur++;
         }
         return cur-1;
     }
-    bool bin(vector<int>& arr,int key)
-    {
+    bool binsearch(vector<int>&arr, int target){
         int beg = 0,end = arr.size()-1;
-        while(beg<=end)
-        {
-            int mid = beg+(end-beg)/2;
-            if(arr[mid] == key)
-                return true;
-            else if(arr[mid]<key)
-                beg = mid+1;
-            else 
-                end = mid-1;
+        while(beg<=end){
+            int mid = beg + (end-beg)/2;
+            if(arr[mid] == target) return true;
+            else if(arr[mid] < target) beg = mid+1;
+            else end = mid-1;
         }
         return false;
     }
