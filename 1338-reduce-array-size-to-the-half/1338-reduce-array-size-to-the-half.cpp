@@ -1,22 +1,18 @@
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        unordered_map<int,int>hash;
-        for(auto i:arr)
-            hash[i]++;
-        vector<int> temp;
-        for(auto i:hash)
-            temp.push_back(i.second);
-        sort(temp.begin(),temp.end(),greater<int>());
         int result = 0;
+        unordered_map<int,int>map;
+        for(auto it:arr) map[it]++;
+        vector<int>temp;
+        for(auto it:map) temp.push_back(it.second);
+        sort(temp.begin(),temp.end(),greater<int>());
         int n = arr.size()/2;
-        for(auto i:temp)
-        {
+        for(auto it:temp){
             result++;
-            n-=i;
-            if(n<=0)
-                break;
-        }
+            n-=it;
+            if(n<=0) break;
+        } 
         return result;
     }
 };
