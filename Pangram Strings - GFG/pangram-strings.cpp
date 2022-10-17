@@ -12,8 +12,7 @@ public:
 	{
 	    int check[26]={0};
 	    for(char it: S){
-	        it = tolower(it);
-	        check[it-'a']++;
+	        check[tolower(it)-'a']++;
 	    }
 	    for(int i = 0;i<26;i++)
 	        if(check[i] == 0) return false;
