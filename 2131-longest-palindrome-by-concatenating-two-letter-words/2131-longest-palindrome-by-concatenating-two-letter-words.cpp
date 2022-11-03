@@ -7,7 +7,6 @@ public:
         {
            umap[word]++;
         }
-        //unordered_set<string> s;
         bool flag=false;
         for(string word:words)
         {
@@ -19,8 +18,6 @@ public:
                 if(t==word)
                     count+=umap[t]/2;
                 else count+=min(umap[t],umap[word]);
-                //s.insert(t);
-                //s.insert(word);
                 if(umap[t]%2==1 && t[0]==t[1])
                     flag=true;
                 umap[word] = 0;
