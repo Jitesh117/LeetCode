@@ -1,1 +1,1 @@
-​
+First reverse the matrix upside down then swap each symmetrical element
