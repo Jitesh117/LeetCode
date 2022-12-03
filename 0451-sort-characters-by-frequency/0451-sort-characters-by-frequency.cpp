@@ -6,9 +6,7 @@ public:
     {
         unordered_map<char, int> hash;
         for (auto it : s)
-        {
             hash[it]++;
-        }
 
         vector<pair<int, char>> temp;
         for (auto it : hash)
