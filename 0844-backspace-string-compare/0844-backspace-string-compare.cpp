@@ -1,23 +1,23 @@
 class Solution {
 public:
-    bool backspaceCompare(string S, string T) {
+    bool backspaceCompare(string s, string t) {
          string str1,str2; 
             
-         for(int i = 0; i < S.size(); i++)
+         for(int i = 0; i < s.size(); i++)
          {   
-                 if(S[i] == '#' && !str1.empty())
+                 if(s[i] == '#' && !str1.empty())
                          str1.pop_back();
                  
-                 else if(S[i] != '#')
-                         str1.push_back(S[i]);    
+                 else if(s[i] != '#')
+                         str1.push_back(s[i]);    
          }
-         for(int i = 0; i < T.size(); i++)
+         for(int i = 0; i < t.size(); i++)
          {      
-                 if(T[i] == '#' && !str2.empty())
+                 if(t[i] == '#' && !str2.empty())
                          str2.pop_back();
                  
-                 else if(T[i] != '#')
-                         str2.push_back(T[i]); 
+                 else if(t[i] != '#')
+                         str2.push_back(t[i]); 
          } 
          return str1 == str2;   
     }
