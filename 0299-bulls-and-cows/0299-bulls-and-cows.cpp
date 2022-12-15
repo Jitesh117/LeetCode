@@ -15,7 +15,7 @@ public:
                 ++g[guess[i]-'0'];
             }
         }
-        for (int i = 0; i < s.size(); i++) {
+        for (int i = 0; i < 10; i++) {
             bulls+= min(s[i], g[i]);
         }
         return to_string(cows) + 'A' + to_string(bulls) + 'B';
