@@ -7,7 +7,7 @@ public:
         vector<int> g(10, 0);
         if (secret.size() != guess.size())
             return "0A0B";
-        for (int i = 0; i < secret.size(); ++i) {
+        for (int i = 0; i < secret.size(); i++) {
             if (secret[i] == guess[i]) {
                 ++cows; 
             } else {
