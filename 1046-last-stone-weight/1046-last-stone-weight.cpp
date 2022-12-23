@@ -10,13 +10,9 @@ public:
             stones.pop_back();
             stones.pop_back();
             
-            if(result > 0){
-                stones.push_back(result);
-            }
+           if(result>0) stones.push_back(result);
         }
-        if(stones.size()){
-            return stones[0];
-        }
+        if(stones.size()) return stones[0];
         return 0;
     }
 };
