@@ -14,6 +14,7 @@ public:
         while(!queue.empty()){
             auto curr = queue.front();
             int x = curr.first, y = curr.second;
+            queue.pop();
             if( x == row -1 && y == col -1) return grid[x][y];
             
             for(auto direction : directions){
@@ -24,7 +25,6 @@ public:
                     grid[nx][ny] = grid[x][y] + 1;
                 }
             }
-            queue.pop();
         }
         return -1;
     }
