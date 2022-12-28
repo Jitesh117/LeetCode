@@ -11,10 +11,10 @@ public:
            pq.pop();
            pq.push(temp);
        }
-        int result = 0;
+       int result = 0;
        while(pq.size())
        {
-         result+=pq.top();
+           result+=pq.top();
            pq.pop();
        }
         return result;
