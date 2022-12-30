@@ -6,7 +6,7 @@ public:
     {
         queue<pair<int, int>>q;
         q.push({entrance[0], entrance[1]});
-        int pathLen = 0;
+        int result = 0;
         maze[entrance[0]][entrance[1]] = '+'; 
         while(!q.empty())
         {
@@ -18,17 +18,17 @@ public:
                 q.pop();
                 for (int i = 0; i < 4; i++)
                 {
-                    int newRow = currRow + rowDir[i]; 
-                    int newCol = currCol + colDir[i];  
-                    if (isValidStep(maze, newRow, newCol)) 
+                    int nrow = currRow + rowDir[i]; 
+                    int ncol = currCol + colDir[i];  
+                    if (isValidStep(maze, nrow, ncol)) 
                     {
-                        maze[newRow][newCol] = '+';
-                        if (isAtBorder(maze, newRow, newCol)) return (pathLen + 1); 
-                        else q.push({newRow, newCol});
+                        maze[nrow][ncol] = '+';
+                        if (isAtBorder(maze, nrow, ncol)) return (result + 1); 
+                        else q.push({nrow, ncol});
                     }
                 }
             }
-            pathLen++; 
+            result++; 
         }
         return -1;
     }
