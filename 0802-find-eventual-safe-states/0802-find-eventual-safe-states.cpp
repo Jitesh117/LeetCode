@@ -6,7 +6,6 @@ public:
         vector<int>indegree(n,0);
         vector<vector<int>>adj(n); 
         int i = 0;
-	
     for(auto& g : graph) {
 		for(auto& it : g) {
 			adj[it].push_back(i);
@@ -14,8 +13,6 @@ public:
 		}
 		i++;
 	}
-
-        
         queue<int>q;
         for(int i = 0;i<n;i++){
             if(indegree[i] == 0)
