@@ -1,18 +1,18 @@
 class Solution {
 public:
     int minMutation(string start, string end, vector<string>& bank) {
-        queue<string> queue;
+        queue<string> q;
         unordered_set<string> seen;
-        queue.push(start);
+        q.push(start);
         seen.insert(start);
         
         int steps = 0;
-        while (!queue.empty()) {
-            int nodesInQueue = queue.size();
+        while (!q.empty()) {
+            int nodesInQueue = q.size();
             
             for (int j = 0; j < nodesInQueue; j++) {
-                string node = queue.front();
-                queue.pop();
+                string node = q.front();
+                q.pop();
 
                 if (node == end) {
                     return steps;
@@ -23,7 +23,7 @@ public:
                         string neighbor = node;
                         neighbor[i] = c;
                         if (!seen.count(neighbor) && find(bank.begin(), bank.end(), neighbor) != bank.end()) {
-                            queue.push(neighbor);
+                            q.push(neighbor);
                             seen.insert(neighbor);
                         }
                     }
