@@ -13,13 +13,14 @@ public:
         q.push(vector<int>{0,0,-1});
         
         while(q.size()) {
-            auto front = q.front();
+            auto node = q.front();
             q.pop();
-            dist[front[0]] = dist[front[0]] != -1 ? dist[front[0]] : front[1];
+            if(dist[node[0]] == -1)
+                dist[node[0]] = node[1];
             
-            for(auto &adj : graph[front[0]]) {
-                if(front[2] != adj.second && adj.first!= -1) {
-                    q.push(vector<int>{adj.first, front[1] + 1, adj.second});
+            for(auto &adj : graph[node[0]]) {
+                if(node[2] != adj.second && adj.first!= -1) {
+                    q.push(vector<int>{adj.first, node[1] + 1, adj.second});
                     adj.first = -1;
                 }
             }
