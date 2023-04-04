@@ -7,7 +7,6 @@ public:
             if(count[c]){
                 count = unordered_map<char,int>();
                 result++; 
-
             }
             count[c]++;
         }
