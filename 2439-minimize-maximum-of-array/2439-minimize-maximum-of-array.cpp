@@ -4,7 +4,7 @@ public:
         long long  sum = 0,result = 0;
         for(int i = 0; i < nums.size(); i++){
            sum += nums[i];
-           result = max(result, (sum + i)/(i+1));
+           result = max(result, (sum + i)/(i+1));// works as the ceil function
         }
         return result;
     }
