@@ -1,7 +1,7 @@
 class Solution {
 public:
     string multiply(string num1, string num2) {
-        if(num1=="0"||num2=="0"){return "0";}
+        if(num1=="0" or num2=="0") return "0";
         int n = num1.length(),m = num2.length();
         string result(n+m,'0');
 
@@ -13,7 +13,8 @@ public:
             }
         }
         for(int i=0;i<result.length();i++){
-            if(result[i] != '0'){ return result.substr(i);}
+            if(result[i] != '0')
+                return result.substr(i);
         } 
         return "0";
     }
