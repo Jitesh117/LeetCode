@@ -25,19 +25,16 @@ public:
         int count = 0; 
         
         for(int i = 0; i < str1.size(); i++){
-            if(str1[i] != str2[i]){
-                count++;
-            }
+            if(str1[i] != str2[i] and ++count > 2) 
+                return false;
         }
         
-        if(count == 2) return true;
         
-        return false;  
+        return true;  
     }
     
     int numSimilarGroups(vector<string>& arr) {
         int n = arr.size();
-        
         for(int i = 0; i < n; i++) par[i] = -1;
         
         for(int i = 0; i < n; i++){
