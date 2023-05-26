@@ -1,7 +1,7 @@
 class Solution {
 public:
     double new21Game(int n, int k, int maxPts) {
-        if (k == 0 || n >= k + maxPts) {
+        if (k == 0 or n >= k + maxPts) {
             return 1.0;
         }
         vector<double> dp(n + 1);
