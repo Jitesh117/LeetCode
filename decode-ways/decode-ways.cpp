@@ -14,7 +14,6 @@ public:
         int take = 0;
         if( i < n-1 and (s[i]=='1' or (s[i]=='2' and s[i+1]<'7'))) 
             take = solve(i + 2, s, dp);
-        // res += solve(p+2,s);
         return dp[i] = take + nonTake;
     }
 };
