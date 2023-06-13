@@ -1,31 +1,31 @@
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
-        int n = graph.size();
-        vector<int>color(n,-1);
-        for(int i = 0;i<n;i++){
-            if(!bfs(i,color,graph)){
-                return false;
-            }
+        const int n = graph.size();
+        vector<int>color(n, -1);
+        for(int i = 0; i < n; i++){
+            if(color[i] == -1)
+                if(!bipartiteBFS(i, graph, color)) return false;
         }
         return true;
     }
-    bool bfs(int i, vector<int>color, vector<vector<int>>&graph){
+    bool bipartiteBFS(int src, vector<vector<int>>&adj, vector<int>&color){
+        color[src] = 1;
         queue<int>q;
-        color[i] = 1;
-        q.push(i);
+        q.push(src);
         while(q.size()){
-            int par = q.front();
+            int node = q.front();
             q.pop();
-            for(auto it:graph[par]){
+            for(auto it: adj[node]){
                 if(color[it] == -1){
-                    color[it] = 1 - color[par];
+                    color[it] = 1 - color[node];
                     q.push(it);
                 }
-                else if(color[it] == color[par]) 
+                else if(color[it] == color[node]){
                     return false;
+                }
             }
         }
-        return true;
+        return true; 
     }
 };
