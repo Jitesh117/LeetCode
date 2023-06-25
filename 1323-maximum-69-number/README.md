@@ -31,7 +31,6 @@ The maximum number is 9969.
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
-
 <ul>
 	<li><code>1 &lt;= num &lt;= 10<sup>4</sup></code></li>
 	<li><code>num</code>&nbsp;consists of only <code>6</code> and <code>9</code> digits.</li>
