@@ -22,7 +22,7 @@ public:
             q.pop();
             
             for(int i : g[curr]){
-                if(ans[i] == INT_MAX or quiet[ans[i]] > quiet[ans[curr]])
+                if( quiet[ans[i]] > quiet[ans[curr]])
                     ans[i] = ans[curr];
                 
                 if(--indegree[i]==0)
