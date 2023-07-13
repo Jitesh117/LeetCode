@@ -14,6 +14,7 @@ public:
        }
        return true;
     }
+    
     bool checkCycle(int i, vector<vector<int>>&adj, vector<int>& dfsVis, vector<int>&vis){
        vis[i] = 1;
        dfsVis[i] = 1;
