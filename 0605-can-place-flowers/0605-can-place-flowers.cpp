@@ -5,13 +5,12 @@ public:
         flowerbed.push_back(0);
         for(int i = 1; i < flowerbed.size()-1; ++i)
         {
-            if(flowerbed[i-1] + flowerbed[i] + flowerbed[i+1] == 0)
-            {
+            if(flowerbed[i-1] + flowerbed[i] + flowerbed[i+1] == 0){
                 --n;
                 ++i;
             }
                 
         }
-        return n <=0;
+        return n <= 0;
     }
 };
