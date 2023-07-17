@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-        if(!head) return NULL;
+       if(!head) return NULL;
        ListNode *odd = head,*even = head->next, *evenhead = head->next; 
         while(even and even->next){
             odd->next = even->next;
@@ -20,6 +20,7 @@ public:
             even = even->next;
         }
         odd->next = evenhead;
+        
         return head;
     }
 };
