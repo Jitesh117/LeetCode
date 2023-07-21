@@ -6,7 +6,7 @@ public:
                 s.erase(s.begin()+0);
             }
         }
-        return s.size() == 0;
+        return !s.size();
     }
    
 };
