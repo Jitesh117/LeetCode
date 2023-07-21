@@ -19,12 +19,12 @@ public:
             maxi = max(maxi, dp[i]);
         }
 
-        int ans = 0;
+        int result = 0;
 
         for(int i = 0 ; i < n ; i++){
-            if(dp[i] == maxi) ans+=cnt[i];
+            if(dp[i] == maxi) result += cnt[i];
         }
 
-        return ans;
+        return result;
     }
 };
