@@ -1,6 +1,6 @@
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
-        ans = []
+        result = []
         map = {'q': 0, 'Q': 0, 'w': 0, 'W': 0, 'e': 0, 'E': 0, 
                  'r': 0, 'R': 0, 'T': 0, 't': 0, 'U': 0, 'u': 0,
                  'I': 0, 'i': 0, 'O': 0, 'o': 0, 'P': 0, 'p': 0,
@@ -23,6 +23,6 @@ class Solution:
                     sameRow = False
                     break
             if sameRow:
-                ans.append(word)
+                result.append(word)
         
-        return ans
+        return result
