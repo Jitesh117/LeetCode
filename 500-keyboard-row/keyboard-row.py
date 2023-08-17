@@ -1,7 +1,7 @@
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
         ans = []
-        hash_ = {'q': 0, 'Q': 0, 'w': 0, 'W': 0, 'e': 0, 'E': 0, 
+        map = {'q': 0, 'Q': 0, 'w': 0, 'W': 0, 'e': 0, 'E': 0, 
                  'r': 0, 'R': 0, 'T': 0, 't': 0, 'U': 0, 'u': 0,
                  'I': 0, 'i': 0, 'O': 0, 'o': 0, 'P': 0, 'p': 0,
                  'Y': 0, 'y': 0,
@@ -16,13 +16,13 @@ class Solution:
                 }
         
         for word in words:
-            temp = hash_[word[0]]
-            is_one_row = True
+            prev = map[word[0]]
+            sameRow = True
             for e in word:
-                if hash_[e] != temp:
-                    is_one_row = False
+                if map[e] != prev:
+                    sameRow = False
                     break
-            if is_one_row:
+            if sameRow:
                 ans.append(word)
         
         return ans
