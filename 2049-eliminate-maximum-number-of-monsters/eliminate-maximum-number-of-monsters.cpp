@@ -8,8 +8,8 @@ public:
        }
        sort(time.begin(), time.end());
        int result = 1;
-       for(int i=1; i<dist.size(); i++){
-            if(time[i]>i) result++;
+       for(int i = 1; i < n; i++){
+            if(time[i] > i) result++;
             else break;
         }
         return result;
