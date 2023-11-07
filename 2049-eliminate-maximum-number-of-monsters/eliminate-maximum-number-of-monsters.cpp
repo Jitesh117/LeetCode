@@ -11,7 +11,6 @@ public:
        for(int i=1; i<dist.size(); i++){
             if(time[i]>i) result++;
             else break;
-
         }
         return result;
     }
