@@ -9,11 +9,11 @@ public:
                if(matrix[i][j] == 0) height[j] = 0;
                else height[j]++;
            }
-           vector<int>order_height = height;
-           sort(order_height.begin(), order_height.end());
+           vector<int>sorted_height = height;
+           sort(sorted_height.begin(), sorted_height.end());
 
            for(int j = 0; j < n; j++){
-               result = max(result, order_height[j] * (n - j));
+               result = max(result, sorted_height[j] * (n - j));
            }
        } 
        return result;
