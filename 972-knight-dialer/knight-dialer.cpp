@@ -11,7 +11,7 @@ const int mod = 1e9 + 7;
                 result = (result + solve(dp, i, j, n)) % mod;
             }
         }
-        return (int)(result);
+        return (result);
     }
     long solve(vector<vector<vector<long>>>& dp, int i, int j, int n) {
         if (i < 0 or j < 0 or i >= 4 or j >= 3 or (i == 3 and j != 1)) return 0;
